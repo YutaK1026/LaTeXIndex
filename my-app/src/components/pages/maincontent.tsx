@@ -3,10 +3,10 @@ import {
     ResizablePanel,
     ResizablePanelGroup,
   } from "@/components/ui/resizable"
-  import SearchLocation from "@/components/props/searchlocaion";
-  import SideMenu from "@/components/props/sidemenu";
-  import ItemPool from "@/components/props/itempool";
-  import Header from "@/components/pages/header";
+import SearchLocation from "@/components/props/searchlocaion";
+import SideMenu from "@/components/props/sidemenu";
+import ItemPool from "@/components/props/itempool";
+import Header from "@/components/pages/header";
 
 export default function MainContent(){
 	return(
