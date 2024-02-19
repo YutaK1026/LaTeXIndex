@@ -15,13 +15,13 @@ export default function Home() {
     <main>
       <div>
         <ResizablePanelGroup
-         direction="vertical"
-         className="min-h-screen max-w-screen">
+          direction="vertical"
+          className="min-h-screen max-w-screen">
           <ResizablePanel defaultSize={10}>
-            <Header/>
+            <Header />
           </ResizablePanel>
           <ResizablePanel defaultSize={90}>
-            <MainContent/>
+            <MainContent />
           </ResizablePanel>
         </ResizablePanelGroup>
       </div>
