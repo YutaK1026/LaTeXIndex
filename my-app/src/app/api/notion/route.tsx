@@ -1,6 +1,6 @@
 import notion from '@/app/api/notion';
-import fs from 'fs';
 
+import fs from 'fs';
 const filepath = "src/app/api/notion/data.json"
 
 export async function GET(request: Request){
@@ -15,9 +15,9 @@ export async function GET(request: Request){
     image: page.properties.Image.files[0].file.url,
     command: page.properties.command.rich_text[0].plain_text,
     description: page.properties.description.rich_text[0].plain_text,
+    tag: page.properties.tag.select.name
   }));
 
-  
   fs.writeFileSync(filepath, JSON.stringify(news));
   return Response.json(news);
 };
