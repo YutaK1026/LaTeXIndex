@@ -16,7 +16,6 @@ export default function SearchLocation({setWord}: {setWord: (word: string)=>void
       <Input
         type="text"
         id="input"
-        value=""
         onChange={handleKeyDown}
         placeholder="検索ワードを入力してください"
         onFocus={(e) => {onFocusFunc(e.target.value)}}
