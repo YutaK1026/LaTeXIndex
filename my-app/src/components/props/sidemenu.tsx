@@ -34,7 +34,7 @@ export default function SideMenu({setWord}: {setWord: (word: string)=>void}) {
             <Separator />
             {commandList.map((i: NotionImageProps, key) => {
               return (
-                <div key={key} className="text-sm p-3 bg-color-gray" onClick={() => {selectTag(i.title)}}>
+                <div key={key} className="text-sm p-3 hover:bg-orange-200 rounded-md" onClick={() => {selectTag(i.title)}}>
                   {i.title}
                 </div>
               )
