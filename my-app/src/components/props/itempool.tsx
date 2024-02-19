@@ -2,47 +2,65 @@
 import CommandCard from "@/components/props/commandcard"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { useState, useEffect } from "react";
-import getImageListFromNotion from "@/components/props/image-from-notion";
-import SearchCommand from "@/components/props/search/search-command";
+import SplitByTag from "@/components/props/search/split-by-tag";
 
-interface NotionImageProps{
+interface NotionImageProps {
   title: string
   id: string
   image: string
   command: string
   description: string
+  tag: string
 }
+interface SearchWordListProps {
+  searchWordList: string[]
+}
+type CommandListProps = Record<string, NotionImageProps[]>
 
-export default function ItemPool(){
+export default function ItemPool({searchWordList}: SearchWordListProps) {
 
-  const [data, setData] = useState<NotionImageProps[]>();
+  const [data, setData] = useState<CommandListProps[]>();
   useEffect(() => {
+    //COMMENT: 検索欄にワードを入れてEnterを押した時点の単語で検索をかける
     const fetchData = async () => {
-      const result = SearchCommand([""])
+      const result = SplitByTag(searchWordList)
       setData(result);
-      console.log(result)
     };
     fetchData();
-  }, []);
+  }, [searchWordList]);
 
-  if(!data){return <div>Loading</div>}
+  if (!data) { return <div>Loading</div> }
 
-  return(
+  return (
     <ScrollArea className="h-full w-full ml-4">
-    <div className="grid grid-flow-row-dense grid-cols-4 m-4">
-      {data.map((item, key) => {
-        return(
-          <div className="m-3" key={"key"+key}>
-            <CommandCard 
-              title={item.title}
-              command={item.command}
-              description={item.description}
-              url={item.image}
-            />
-          </div>
-        )
-      })}
-    </div>
+      <div>
+        {data.map((item, key) => {
+          const keyName = Object.keys(item)[0]
+          var CommandList: NotionImageProps[] = []
+          item[keyName].map((i) => { CommandList.push(i) })
+          return (
+            <div className="m-3" key={"key" + key}>
+              <div className="border-b-2 text-xl">
+                {keyName}
+              </div>
+              <div className="grid grid-flow-row-dense grid-cols-4 m-4">
+                {CommandList.map((i: NotionImageProps, key) => {
+                  return (
+                    <div className="m-2" key={key}>
+                      <CommandCard
+                        title={i.title}
+                        command={i.command}
+                        description={i.description}
+                        url={i.image}
+                      />
+                    </div>
+                  )
+                })}
+              </div>
+            </div>
+          )
+        })}
+      </div>
     </ScrollArea>
   )
 }
