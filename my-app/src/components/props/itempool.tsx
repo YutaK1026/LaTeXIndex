@@ -43,7 +43,7 @@ export default function ItemPool({searchWordList}: SearchWordListProps) {
               <div className="border-b-2 text-xl">
                 {keyName}
               </div>
-              <div className="grid grid-flow-row-dense grid-cols-4 m-4">
+              <div className="grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] m-4">
                 {CommandList.map((i: NotionImageProps, key) => {
                   return (
                     <div className="m-2" key={key}>
