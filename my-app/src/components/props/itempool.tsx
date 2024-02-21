@@ -41,7 +41,7 @@ export default function ItemPool({searchWordList}: SearchWordListProps) {
           item[keyName].map((i) => { CommandList.push(i) })
           return (
             <div className="m-3" key={"key" + key}>
-              <div className="border-b-2 text-xl">
+              <div className="border-b-2 border-gray-400 text-xl">
                 {keyName}
               </div>
               <div className="grid grid-cols-[repeat(auto-fill,minmax(12rem,1fr))] m-4">
