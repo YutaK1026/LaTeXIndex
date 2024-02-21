@@ -10,6 +10,7 @@ interface NotionImageProps {
   command: string
   description: string
   tag: string
+  searchword: string
 }
 type CommandListProps = Record<string, NotionImageProps[]>
 

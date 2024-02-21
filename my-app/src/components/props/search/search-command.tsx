@@ -8,6 +8,7 @@ interface NotionImageProps {
   command: string
   description: string
   tag: string
+  searchword: string
 }
 
 export default function SearchCommand(wordList: string[]) {
@@ -24,8 +25,8 @@ export default function SearchCommand(wordList: string[]) {
     word_ngram.map((item) => {
       //COMMENT: 分割したそれぞれの単語について部分一致を検索する
       notionData.map((data) => {
-        if ((data.title.indexOf(item) > -1) && (!commandList.includes(data))) {
-          //COMMENT: コマンドのtitleと入力した検索コマンドのngramが部分一致したらListに追加
+        if ((data.searchword.indexOf(item) > -1) && (!commandList.includes(data))) {
+          //COMMENT: コマンドのsearchwordと入力した検索コマンドのngramが部分一致したらListに追加
           commandList.push(data)
         }
       })

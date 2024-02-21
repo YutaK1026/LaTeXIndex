@@ -15,7 +15,8 @@ export async function GET(request: Request) {
     image: `${process.env.R2_URL}/${page.properties.Name.title[0].plain_text}.png`,
     command: page.properties.command.rich_text[0].plain_text,
     description: page.properties.description.rich_text[0].plain_text,
-    tag: page.properties.tag.select.name
+    tag: page.properties.tag.select.name,
+    searchword: page.properties.searchword.rich_text[0].plain_text
   }));
 
   fs.writeFileSync(filepath, JSON.stringify(news));

@@ -11,6 +11,7 @@ interface NotionImageProps {
   command: string
   description: string
   tag: string
+  searchword: string
 }
 interface SearchWordListProps {
   searchWordList: string[]
@@ -24,7 +25,7 @@ export default function ItemPool({searchWordList}: SearchWordListProps) {
     //COMMENT: 検索欄にワードを入れてEnterを押した時点の単語で検索をかける
     const fetchData = async () => {
       const result = SplitByTag(searchWordList)
-      setData(result);
+      setData(result)
     };
     fetchData();
   }, [searchWordList]);
