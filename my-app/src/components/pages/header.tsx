@@ -10,7 +10,9 @@ export default function Header() {
     <div className="grid grid-cols-6 gap-4">
       <div className="col-span-3 flex items-center">
         <h1 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 ml-6">
-          LaTeX with React
+          <Link href="/">
+            LaTeX with React
+          </Link>
         </h1>
       </div>
       <div className="col-span-1 flex items-center">
