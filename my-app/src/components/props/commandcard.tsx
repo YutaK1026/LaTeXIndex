@@ -53,9 +53,9 @@ export default function CommandCard({title, command, description, url}: CommandC
             <div className="align-middle">
               command: 
             </div>
-            <div className="rounded-md border px-4 py-3 font-mono text-sm">
-              \{command}
-            </div>
+            <code className="rounded-md border px-4 py-3 font-mono text-sm break-words whitespace-pre-wrap">
+              {command}
+            </code>
           </div>
           <div className="flex items-center gap-4">
             <div className="align-middle">

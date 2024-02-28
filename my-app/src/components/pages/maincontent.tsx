@@ -12,7 +12,7 @@ import { useState } from "react";
 
 export default function MainContent() {
   const [searchWordList, setSearchWordList] = useState<string[]>([""])
-
+  const [showSideMenu, setShowSideMenu] = useState(true)
   const setWord = (word: string) => {
     const wordList = word.split(' ')
     setSearchWordList(wordList)
@@ -22,12 +22,19 @@ export default function MainContent() {
   return (
     <ResizablePanelGroup
       direction="horizontal">
-      <ResizablePanel defaultSize={25}>
+      <ResizablePanel defaultSize={22} className={showSideMenu?"border-r-2":"border-r-2 hidden"}>
         <div className="flex h-screen items-center justify-center p-1">
           <SideMenu setWord={setWord}/>
         </div>
       </ResizablePanel>
-      <ResizablePanel defaultSize={75}>
+      <ResizablePanel defaultSize={3}>
+        <div className="mt-6 w-6/12 h-10 border bg-current rounded-r-md flex items-center" onClick={() => {setShowSideMenu(!showSideMenu)}}>
+          <div className="text-background font-extrabold">
+            ＞
+          </div>
+        </div>
+      </ResizablePanel>
+      <ResizablePanel defaultSize={showSideMenu?75:97}>
         <ResizablePanelGroup
           direction="vertical">
           <ResizablePanel defaultSize={15}>

@@ -71,7 +71,7 @@ export default function Contact() {
         <div className="mb-4">
           <label
             htmlFor="name"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium"
           >
             名前:
           </label>
@@ -81,13 +81,13 @@ export default function Contact() {
             name="name"
             value={formData.name}
             onChange={handleChange}
-            className="border border-gray-300 p-2 w-full rounded-md"
+            className="border p-2 w-full rounded-md"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="email"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium"
           >
             メールアドレス:
           </label>
@@ -97,13 +97,13 @@ export default function Contact() {
             name="email"
             value={formData.email}
             onChange={handleChange}
-            className="border border-gray-300 p-2 w-full rounded-md"
+            className="border p-2 w-full rounded-md"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="subject"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium"
           >
             件名:
           </label>
@@ -113,13 +113,13 @@ export default function Contact() {
             name="subject"
             value={formData.subject}
             onChange={handleChange}
-            className="border border-gray-300 p-2 w-full rounded-md"
+            className="border p-2 w-full rounded-md"
           />
         </div>
         <div className="mb-4">
           <label
             htmlFor="content"
-            className="block text-sm font-medium text-gray-700"
+            className="block text-sm font-medium"
           >
             本文:
           </label>
@@ -128,7 +128,7 @@ export default function Contact() {
             name="content"
             value={formData.content}
             onChange={handleChange}
-            className="border border-gray-300 p-2 w-full rounded-md h-32 resize-none"
+            className="border p-2 w-full rounded-md h-32 resize-none"
           />
         </div>
         <div className="mb-4">
@@ -136,7 +136,7 @@ export default function Contact() {
             type="button"
             onClick={handleSendMail}
             disabled={isSending}
-            className={`bg-blue-500 text-white p-2 rounded-md ${
+            className={`border p-2 rounded-md ${
               isSending ? "opacity-50 cursor-not-allowed" : ""
             }`}
           >
