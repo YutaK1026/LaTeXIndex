@@ -9,6 +9,7 @@ export default function SplitByTag(wordList: string[]) {
     if(!CommandListBeforeMolding[i.tag])CommandListBeforeMolding[i.tag] = [i]
     else CommandListBeforeMolding[i.tag].push(i)
   })
+  console.log(CommandListBeforeMolding)
 
   for(var i in CommandListBeforeMolding){
     var dict: any = {}

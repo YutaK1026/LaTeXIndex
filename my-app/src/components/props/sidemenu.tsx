@@ -2,6 +2,7 @@ import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { Button } from "@/components/ui/button"
 import SplitByTag from "@/components/props/search/split-by-tag"
+import { useRef } from "react"
 
 interface NotionImageProps {
   title: string
@@ -14,15 +15,26 @@ interface NotionImageProps {
 }
 type CommandListProps = Record<string, NotionImageProps[]>
 
-export default function SideMenu({setWord}: {setWord: (word: string)=>void}) {
+interface SideMenuProps {
+  setWord: (word: string)=>void
+}
+
+export default function SideMenu({setWord}: SideMenuProps) {
   const notionData = SplitByTag([""])
-  
   const selectTag = (title: string) => {
     setWord(title)
   }
 
   return (
     <ScrollArea className="h-full w-full ml-4">
+      <div className="text-xl">
+        ALL
+      </div>
+      <Separator />
+      <div className="text-sm p-3 hover:font-extrabold rounded-md" onClick={() => {selectTag("")}}>
+        ALL
+      </div>
+      <br />
       {notionData.map((item: CommandListProps, key: string) => {
         const keyName = Object.keys(item)[0]
         var commandList: NotionImageProps[] = []
@@ -43,6 +55,9 @@ export default function SideMenu({setWord}: {setWord: (word: string)=>void}) {
           </div>
         )
       })}
+    <div>
+      <br />
+    </div>
     </ScrollArea>
   )
 }

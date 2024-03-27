@@ -8,11 +8,20 @@ import SearchLocation from "@/components/props/searchlocaion";
 import SideMenu from "@/components/props/sidemenu";
 import ItemPool from "@/components/props/itempool";
 import Header from "@/components/pages/header";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-export default function MainContent() {
-  const [searchWordList, setSearchWordList] = useState<string[]>([""])
-  const [showSideMenu, setShowSideMenu] = useState(true)
+interface SearchWordListProps {
+  searchWordListFromHeader: string[]
+}
+
+export default function MainContent({searchWordListFromHeader}: SearchWordListProps) {
+  const [searchWordList, setSearchWordList] = useState<string[]>(searchWordListFromHeader)
+  
+  useEffect(() => {
+    //COMMENT: Header内のSideMenuで検索ワードが指定されたときに、ここでsetする。
+    setSearchWordList(searchWordListFromHeader)
+  },[searchWordListFromHeader])
+
   const setWord = (word: string) => {
     const wordList = word.split(' ')
     setSearchWordList(wordList)
@@ -22,19 +31,7 @@ export default function MainContent() {
   return (
     <ResizablePanelGroup
       direction="horizontal">
-      <ResizablePanel defaultSize={22} className={showSideMenu?"border-r-2":"border-r-2 hidden"}>
-        <div className="flex h-screen items-center justify-center p-1">
-          <SideMenu setWord={setWord}/>
-        </div>
-      </ResizablePanel>
-      <ResizablePanel defaultSize={3}>
-        <div className="mt-6 w-6/12 h-10 border bg-current rounded-r-md flex items-center" onClick={() => {setShowSideMenu(!showSideMenu)}}>
-          <div className="text-background font-extrabold">
-            ＞
-          </div>
-        </div>
-      </ResizablePanel>
-      <ResizablePanel defaultSize={showSideMenu?75:97}>
+      <ResizablePanel defaultSize={100}>
         <ResizablePanelGroup
           direction="vertical">
           <ResizablePanel defaultSize={15}>
