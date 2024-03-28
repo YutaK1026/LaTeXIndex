@@ -12,7 +12,7 @@ export async function GET(request: Request) {
   const news = response.results.map((page: any) => ({
     title: page.properties.Name.title[0].plain_text,
     id: page.id,
-    image: `${process.env.R2_URL}/${page.properties.Name.title[0].plain_text}.png`,
+    image: `${process.env.R2_URL}/${page.properties.filename.rich_text[0].plain_text}.png`,
     command: page.properties.command.rich_text[0].plain_text,
     description: page.properties.description.rich_text[0].plain_text,
     tag: page.properties.tag.select.name,
