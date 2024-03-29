@@ -46,7 +46,7 @@ export default function MainContent({searchWordListFromHeader}: SearchWordListPr
         //   </ResizablePanel>
         // </ResizablePanelGroup>
 
-        <div className="h-5/6">
+        <div className="h-full">
           <div className="mx-8">
             <SearchLocation setWord={setWord}/>
           </div>
