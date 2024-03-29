@@ -10,7 +10,7 @@ import SideMenu from "@/components/props/sidemenu";
 import ItemPool from "@/components/props/itempool";
 import Header from "@/components/pages/header";
 import MainContent from "@/components/pages/maincontent";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
   const [searchWordList, setSearchWordList] = useState<string[]>([""])
@@ -22,6 +22,20 @@ export default function Home() {
     const wordList = word.split(' ')
     setSearchWordList(wordList)
   }
+  const [isPcType, setIsPcType] = useState(false)
+  useEffect(() => {
+    const mobileTypeList = ["iPhone", "iPad", "iPod", "Android"];
+    const machineType = navigator.userAgent;
+    const mobileTypeCheck = mobileTypeList.filter((item) => {
+      return machineType.search(item) != -1
+    })
+    if(mobileTypeCheck.length > 0){
+      setIsPcType(false)
+    }else{
+      setIsPcType(true)
+    }
+    console.log(machineType)
+  })
 
   return (
     <main>
