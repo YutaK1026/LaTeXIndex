@@ -72,10 +72,6 @@ export default function Header({setWordHeader}: HeaderProps) {
         </Link>
       </div>
 
-      <Button className="col-span-1 m-3" onClick={getImageListFromNotion}>
-        データ更新取得
-      </Button>
-
     </div>
   )
 }

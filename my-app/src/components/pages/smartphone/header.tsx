@@ -70,14 +70,9 @@ export default function HeaderPhone({setWordHeader}: HeaderProps) {
           </Link>
         </h1>
       </div>
-
-      {/* <div className="m-3"> */}
         <DropdownMenu>
           <DropdownMenuTrigger>Menu</DropdownMenuTrigger>
           <DropdownMenuContent>
-            {/* <DropdownMenuItem>
-              <ModeToggle/>
-            </DropdownMenuItem> */}
             <DropdownMenuItem>
               <div className="flex items-center underline">
                 <Link href="/contact">
@@ -85,17 +80,8 @@ export default function HeaderPhone({setWordHeader}: HeaderProps) {
                 </Link>
               </div>
             </DropdownMenuItem>
-            <DropdownMenuItem>
-              <Button onClick={getImageListFromNotion}>
-                データ更新取得
-              </Button>
-            </DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
-      {/* </div> */}
-
-      
-
     </div>
   )
 }
