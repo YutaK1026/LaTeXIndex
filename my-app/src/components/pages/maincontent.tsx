@@ -29,30 +29,13 @@ export default function MainContent({searchWordListFromHeader}: SearchWordListPr
   }
 
   return (
-
-        // <ResizablePanelGroup
-        //   direction="vertical">
-        //   <ResizablePanel defaultSize={15}>
-        //     a
-        //     {/* <div className="flex h-full mx-8">
-        //       <SearchLocation setWord={setWord}/>
-        //     </div> */}
-        //   </ResizablePanel>
-        //   <ResizablePanel defaultSize={85}>
-        //     b
-        //     {/* <div className="flex h-full p-6">
-        //       <ItemPool searchWordList = {searchWordList}/>
-        //     </div> */}
-        //   </ResizablePanel>
-        // </ResizablePanelGroup>
-
-        <div className="h-full">
-          <div className="mx-8">
-            <SearchLocation setWord={setWord}/>
-          </div>
-          <div className="h-full p-6">
-            <ItemPool searchWordList = {searchWordList}/>
-          </div>
-        </div>
+    <div className="h-full">
+      <div className="mx-8">
+        <SearchLocation setWord={setWord}/>
+      </div>
+      <div className="h-[calc(80dvh)] p-6">
+        <ItemPool searchWordList = {searchWordList}/>
+      </div>
+    </div>
   )
 }
