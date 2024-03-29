@@ -29,9 +29,7 @@ export default function MainContent({searchWordListFromHeader}: SearchWordListPr
   }
 
   return (
-    <ResizablePanelGroup
-      direction="horizontal">
-      <ResizablePanel defaultSize={100}>
+
         <ResizablePanelGroup
           direction="vertical">
           <ResizablePanel defaultSize={15}>
@@ -45,7 +43,5 @@ export default function MainContent({searchWordListFromHeader}: SearchWordListPr
             </div>
           </ResizablePanel>
         </ResizablePanelGroup>
-      </ResizablePanel>
-    </ResizablePanelGroup>
   )
 }
