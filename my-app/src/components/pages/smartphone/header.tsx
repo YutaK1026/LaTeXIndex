@@ -12,6 +12,14 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 import SideMenu from "@/components/props/sidemenu";
 import { AlignJustify } from 'lucide-react';
 import { useState, useRef } from "react";
@@ -20,7 +28,8 @@ interface HeaderProps {
   setWordHeader: (word: string)=>void
 }
 
-export default function Header({setWordHeader}: HeaderProps) {
+export default function HeaderPhone({setWordHeader}: HeaderProps) {
+  //COMMENT: スマホ用ヘッダー
   const Ref = useRef<HTMLElement>(null);
   const [isOpen, setIsOpen] = useState(false);
 
@@ -36,8 +45,8 @@ export default function Header({setWordHeader}: HeaderProps) {
   }
 
   return (
-    <div className="grid grid-cols-6 gap-4">
-      <div className="col-span-3 flex items-center">
+    <div className="grid grid-flow-col auto-cols-auto">
+      <div className="flex items-center h-full">
         <div className="m-2 flex items-center">
           <Sheet open={isOpen}>
             <SheetTrigger onClick={() => {handleSetOpen()}}>
@@ -46,7 +55,7 @@ export default function Header({setWordHeader}: HeaderProps) {
             <SheetContent handleSetOpen={handleSetOpen}>
               <SheetHeader>
                 <SheetTitle>
-                  絞り込むワードを選択してください。
+                  絞り込むワードを選択
                 </SheetTitle>
                 <SheetDescription>
                   <SideMenu setWord={setWord} />
@@ -55,26 +64,37 @@ export default function Header({setWordHeader}: HeaderProps) {
             </SheetContent>
           </Sheet>
         </div>
-        <h1 className="scroll-m-20 text-3xl font-semibold tracking-tight first:mt-0 ml-6">
+        <h1 className="scroll-m-20 text-xl font-semibold tracking-tight first:mt-0 ml-6">
           <Link href="/">
             LaTeX Index
           </Link>
         </h1>
       </div>
 
-      <div className="col-span-1 flex items-center">
-        <ModeToggle/>
-      </div>
+      {/* <div className="m-3"> */}
+        <DropdownMenu>
+          <DropdownMenuTrigger>Menu</DropdownMenuTrigger>
+          <DropdownMenuContent>
+            {/* <DropdownMenuItem>
+              <ModeToggle/>
+            </DropdownMenuItem> */}
+            <DropdownMenuItem>
+              <div className="flex items-center underline">
+                <Link href="/contact">
+                  お問い合わせはこちら
+                </Link>
+              </div>
+            </DropdownMenuItem>
+            <DropdownMenuItem>
+              <Button onClick={getImageListFromNotion}>
+                データ更新取得
+              </Button>
+            </DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
+      {/* </div> */}
 
-      <div className="col-span-1 m-3 flex items-center underline">
-        <Link href="/contact">
-          お問い合わせはこちら
-        </Link>
-      </div>
-
-      <Button className="col-span-1 m-3" onClick={getImageListFromNotion}>
-        データ更新取得
-      </Button>
+      
 
     </div>
   )

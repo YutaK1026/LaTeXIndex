@@ -10,6 +10,7 @@ import SideMenu from "@/components/props/sidemenu";
 import ItemPool from "@/components/props/itempool";
 import Header from "@/components/pages/header";
 import MainContent from "@/components/pages/maincontent";
+import HeaderPhone from "@/components/pages/smartphone/header";
 import { useState, useRef, useEffect } from "react";
 
 export default function Home() {
@@ -44,7 +45,11 @@ export default function Home() {
           direction="vertical"
           className="min-h-screen max-w-screen">
           <ResizablePanel defaultSize={10}>
-            <Header setWordHeader={setWordHeader}/>
+            {isPcType?
+              <Header setWordHeader={setWordHeader}/>
+              :
+              <HeaderPhone setWordHeader={setWordHeader}/>
+            }
           </ResizablePanel>
           <ResizablePanel defaultSize={90}>
             <MainContent searchWordListFromHeader={searchWordList}/>

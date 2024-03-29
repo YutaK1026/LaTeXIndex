@@ -35,7 +35,7 @@ export default function MainContent({searchWordListFromHeader}: SearchWordListPr
         <ResizablePanelGroup
           direction="vertical">
           <ResizablePanel defaultSize={15}>
-            <div className="flex h-full ml-10">
+            <div className="flex h-full mx-8">
               <SearchLocation setWord={setWord}/>
             </div>
           </ResizablePanel>

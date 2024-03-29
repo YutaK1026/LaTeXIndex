@@ -65,7 +65,7 @@ export default function Contact() {
   };
   
   return (
-    <div className="w-1/2 mx-auto">
+    <div className="w-3/5 mx-auto">
       <h2 className="text-2xl font-bold mb-4">お問い合わせフォーム</h2>
       <form>
         <div className="mb-4">
