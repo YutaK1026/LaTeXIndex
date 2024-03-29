@@ -52,6 +52,7 @@ export default function Home() {
             }
           </ResizablePanel>
           <ResizablePanel defaultSize={90}>
+            aaaaa
             <MainContent searchWordListFromHeader={searchWordList}/>
           </ResizablePanel>
         </ResizablePanelGroup>
