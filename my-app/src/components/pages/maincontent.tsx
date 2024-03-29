@@ -29,7 +29,7 @@ export default function MainContent({searchWordListFromHeader}: SearchWordListPr
   }
 
   return (
-    <div className="h-full">
+    <div className="h-5/6">
       <div className="mx-8">
         <SearchLocation setWord={setWord}/>
       </div>
