@@ -13,7 +13,7 @@ export default function SearchLocation({setWord}: {setWord: (word: string)=>void
   return (
     <div className="grid w-full max-w-sm items-center gap-1.5">
       <Label htmlFor="name">検索BOX</Label>
-      <Input
+      <input
         type="text"
         id="input"
         onChange={handleKeyDown}
