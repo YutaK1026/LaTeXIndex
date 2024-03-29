@@ -34,7 +34,7 @@ export default function ContactPage() {
         :
         <div>
           <HeaderPhone setWordHeader={setWord}/>
-          <div className="mt-6">
+          <div className="mt-6 h-full">
             <Contact/>
           </div>
         </div>
